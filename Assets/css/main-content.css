@@ -1,0 +1,19 @@
+.product-gallery header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-gallery .big-figure img {
+  width: 100%;
+}
+
+.product-gallery .reg-figure {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.product-gallery .reg-figure img {
+  width: 100%;
+}
