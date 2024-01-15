@@ -30,9 +30,26 @@ galleryArray.forEach((img) => {
   });
 });
 
+let modalOpen = false;
+
 galleryBigImg.addEventListener("click", () => {
+  if (modalOpen) {
+    return;
+  }
+
+  modalOpen = true;
   const modalFigure = document.createElement("figure");
-  const modalImg = galleryBigImg.cloneNode(true);
+  modalFigure.classList.add("modal-figure");
+  const modalImg = document.createElement("img");
+  modalImg.src = galleryBigImg.src;
+
+  modalFigure.appendChild(modalImg);
+  galleryFigure.appendChild(modalFigure);
+
+  modalFigure.addEventListener("click", () => {
+    modalFigure.remove();
+    modalOpen = false;
+  });
 });
 
 galleryFigure.appendChild(regImgFigure);

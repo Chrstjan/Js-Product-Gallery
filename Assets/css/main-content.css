@@ -1,3 +1,7 @@
+.product-gallery {
+  position: relative;
+}
+
 .product-gallery header {
   display: flex;
   justify-content: center;
@@ -16,4 +20,17 @@
 
 .product-gallery .reg-figure img {
   width: 100%;
+}
+
+.product-gallery .modal-figure {
+  width: 80%;
+  position: fixed;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-figure img {
+  width: 100%;
+  border: 2px solid #222;
 }
