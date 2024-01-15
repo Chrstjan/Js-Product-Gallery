@@ -1,2 +1,2 @@
-# Html-Boilerplate
-A Html Boilerplate
+# JavaScript Product Gallery
+Product Gallery made with JavaScript
