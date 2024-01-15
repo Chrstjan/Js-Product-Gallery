@@ -23,6 +23,16 @@ galleryArray.forEach((img) => {
   galleryRegImg.src = galleryRegImgSrc;
 
   regImgFigure.appendChild(galleryRegImg);
+
+  //Gallery Image Swapper
+  galleryRegImg.addEventListener("click", (e) => {
+    galleryBigImg.src = e.target.src;
+  });
+});
+
+galleryBigImg.addEventListener("click", () => {
+  const modalFigure = document.createElement("figure");
+  const modalImg = galleryBigImg.cloneNode(true);
 });
 
 galleryFigure.appendChild(regImgFigure);
