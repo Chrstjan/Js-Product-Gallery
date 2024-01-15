@@ -32,21 +32,54 @@ galleryArray.forEach((img) => {
 
 let modalOpen = false;
 
+const modalArrow = baseUrl + "arrow.svg";
+
 galleryBigImg.addEventListener("click", () => {
   if (modalOpen) {
     return;
   }
 
   modalOpen = true;
+
   const modalFigure = document.createElement("figure");
   modalFigure.classList.add("modal-figure");
   const modalImg = document.createElement("img");
   modalImg.src = galleryBigImg.src;
 
   modalFigure.appendChild(modalImg);
+
+  const modalArrowFigure = document.createElement("figure");
+  modalArrowFigure.classList.add("arrow-container");
+
+  const rightArrow = document.createElement("img");
+  rightArrow.src = modalArrow;
+  rightArrow.classList.add("right-arrow");
+
+  const leftArrow = document.createElement("img");
+  leftArrow.src = modalArrow;
+  leftArrow.classList.add("left-arrow");
+
+  modalArrowFigure.appendChild(rightArrow);
+  modalArrowFigure.appendChild(leftArrow);
+
+  modalFigure.appendChild(modalArrowFigure);
+
+  let modalImageCount = 0;
+
+  rightArrow.addEventListener("click", () => {
+    modalImageCount = (modalImageCount + 1) % galleryArray.length;
+    modalImg.src = baseUrl + galleryArray[modalImageCount];
+  });
+
+  leftArrow.addEventListener("click", () => {
+    modalImageCount =
+      (modalImageCount - 1 + galleryArray.length) % galleryArray.length;
+    modalImg.src = baseUrl + galleryArray[modalImageCount];
+  });
+
   galleryFigure.appendChild(modalFigure);
 
-  modalFigure.addEventListener("click", () => {
+  modalImg.addEventListener("click", () => {
     modalFigure.remove();
     modalOpen = false;
   });

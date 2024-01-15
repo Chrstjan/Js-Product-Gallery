@@ -28,9 +28,28 @@
   top: 50%;
   left: 40%;
   transform: translate(-50%, -50%);
+  border: 2px solid #222;
 }
 
 .modal-figure img {
+  position: relative;
   width: 100%;
-  border: 2px solid #222;
+}
+
+.modal-figure .arrow-container img {
+  width: 20vw;
+  z-index: 999;
+}
+
+.arrow-container .right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 1%;
+}
+
+.arrow-container .left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 1%;
+  transform: rotate(180deg);
 }
