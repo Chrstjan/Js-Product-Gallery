@@ -53,4 +53,50 @@ const appendChildren = ((parent, elements) => {
 
 appendChildren(cookieContainer, [cookieHeader, cookieSubHeader, cookieList]);
 
+const cookieSelectContainer = document.createElement("div");
+
+const createCheckboxElement = ((inputType, id) => {
+    const checkbox = document.createElement("input");
+    checkbox.setAttribute("type", inputType);
+    checkbox.setAttribute("id", id);
+
+    return checkbox;
+});
+
+const createLabelElement = ((labelText, forInput) => {
+    const label = document.createElement("label");
+    label.textContent = labelText;
+    label.setAttribute("for", forInput);
+
+    return label;
+});
+
+const createCheckboxContainer = ((checkbox, label) => {
+    const checkboxSpan = document.createElement("span");
+    checkboxSpan.appendChild(checkbox);
+    checkboxSpan.appendChild(label);
+
+    return checkboxSpan;
+})
+
+const essCheckbox = createCheckboxElement("checkbox", "essential");
+const essCheckboxLabel = createLabelElement("Essential Cookies", "essential");
+const essCheckboxContainer = createCheckboxContainer(essCheckbox, essCheckboxLabel);
+
+const perCheckbox = createCheckboxElement("checkbox", "performance");
+const perCheckboxLabel = createLabelElement("Performance Cookies", "performance");
+const perCheckboxContainer = createCheckboxContainer(perCheckbox, perCheckboxLabel);
+
+const funcCheckbox = createCheckboxElement("checkbox", "functional");
+const funcCheckboxLabel = createLabelElement("Functionality Cookies", "functional");
+const funcCheckboxContainer = createCheckboxContainer(funcCheckbox, funcCheckboxLabel);
+
+const marketCheckbox = createCheckboxElement("checkbox", "market");
+const marketCheckboxLable = createLabelElement("Marketing Cookies", "market");
+const marketCheckboxContainer = createCheckboxContainer(marketCheckbox, marketCheckboxLable);
+
+appendChildren(cookieSelectContainer, [essCheckboxContainer, perCheckboxContainer, funcCheckboxContainer, marketCheckboxContainer]);
+
+cookieContainer.appendChild(cookieSelectContainer);
+
 DOMBody.appendChild(cookieContainer);
