@@ -97,6 +97,20 @@ const marketCheckboxContainer = createCheckboxContainer(marketCheckbox, marketCh
 
 appendChildren(cookieSelectContainer, [essCheckboxContainer, perCheckboxContainer, funcCheckboxContainer, marketCheckboxContainer]);
 
+const cookieBtnContainer = document.createElement("div");
+
+const allBtn = document.createElement("p");
+allBtn.textContent = "All Cookies";
+allBtn.classList.add("all-btn");
+
+const selectedBtn = document.createElement("p");
+selectedBtn.textContent = "Selected Cookies";
+selectedBtn.classList.add("selected-btn");
+
+appendChildren(cookieBtnContainer, [allBtn, selectedBtn]);
+
+cookieSelectContainer.appendChild(cookieBtnContainer);
+
 cookieContainer.appendChild(cookieSelectContainer);
 
 DOMBody.appendChild(cookieContainer);
