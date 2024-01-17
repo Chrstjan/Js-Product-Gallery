@@ -54,6 +54,7 @@ const appendChildren = ((parent, elements) => {
 appendChildren(cookieContainer, [cookieHeader, cookieSubHeader, cookieList]);
 
 const cookieSelectContainer = document.createElement("div");
+cookieSelectContainer.classList.add("select-container");
 
 const createCheckboxElement = ((inputType, id) => {
     const checkbox = document.createElement("input");
@@ -98,6 +99,7 @@ const marketCheckboxContainer = createCheckboxContainer(marketCheckbox, marketCh
 appendChildren(cookieSelectContainer, [essCheckboxContainer, perCheckboxContainer, funcCheckboxContainer, marketCheckboxContainer]);
 
 const cookieBtnContainer = document.createElement("div");
+cookieBtnContainer.classList.add("btn-container");
 
 const allBtn = document.createElement("p");
 allBtn.textContent = "All Cookies";
