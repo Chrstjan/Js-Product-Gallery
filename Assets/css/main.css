@@ -14,6 +14,10 @@ body {
   position: relative;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 .main-container {
   margin: 0 auto;
   padding: 0;

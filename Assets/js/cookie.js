@@ -1,4 +1,5 @@
 const DOMBody = document.body;
+DOMBody.classList.add("no-scroll");
 
 const cookieContainer = document.createElement("div");
 cookieContainer.classList.add("cookie-container");
@@ -112,6 +113,34 @@ selectedBtn.classList.add("selected-btn");
 appendChildren(cookieBtnContainer, [allBtn, selectedBtn]);
 
 cookieSelectContainer.appendChild(cookieBtnContainer);
+
+essCheckbox.checked = true;
+perCheckbox.checked = true;
+funcCheckbox.checked = true;
+marketCheckbox.checked = true;
+
+allBtn.addEventListener("click", () => {
+    essCheckbox.checked = true;
+    perCheckbox.checked = true;
+    funcCheckbox.checked = true;
+    marketCheckbox.checked = true;
+
+    removeCookie();
+});
+
+selectedBtn.addEventListener("click", () => {
+    removeCookie();
+})
+
+const removeCookie = () => {
+    if (essCheckbox.checked || perCheckbox.checked || funcCheckbox.checked || marketCheckbox.checked) {
+        cookieContainer.remove();
+        DOMBody.classList.remove("no-scroll");
+    }
+    else {
+        alert("You have to choose at least one");
+    }
+}
 
 cookieContainer.appendChild(cookieSelectContainer);
 
